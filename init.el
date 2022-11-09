@@ -13,7 +13,12 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (set-fringe-mode 4)
-(setq inhibit-startup-message t)
+(defalias 'yes-or-no-p 'y-or-n-p)
+(setq-default indicate-empty-lines t)
+(setq inhibit-startup-message t
+      use-dialog-box nil
+      highlight-nonselected-windows t
+      cursor-in-non-selected-windows 'hollow)
 
 ;;; Ido mode
 (setq ido-enable-flex-matching t
@@ -51,6 +56,17 @@
  kept-new-versions 6
  kept-old-versions 2
  version-control t)
+
+;;; Scrolling
+(setq scroll-step 1
+      scroll-margin 1
+      mouse-wheel-follow-mouse t
+      mouse-wheel-progressive-speed nil
+      scroll-margin 2
+      mouse-wheel-inhibit-click-time nil
+      scroll-error-top-bottom t
+      scroll-preserve-screen-position t
+      scroll-conservatively scroll-margin)
 
 ;;; Clipboard
 (setq select-enable-primary t
