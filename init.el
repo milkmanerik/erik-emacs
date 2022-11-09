@@ -25,7 +25,6 @@
 (windmove-default-keybindings)
 
 ;; Markdown Mode
-
 (let ((mm (locate-user-emacs-file "markdown-mode.el")))
   (when (file-exists-p mm)
     (load mm)))
