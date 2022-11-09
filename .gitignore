@@ -1,0 +1,6 @@
+*
+!.gitignore
+!README.md
+!LICENSE
+!init.el
+!markdown-mode.el
