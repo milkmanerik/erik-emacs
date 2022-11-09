@@ -25,9 +25,19 @@
 (windmove-default-keybindings)
 
 ;; Markdown Mode
-(let ((mm (locate-user-emacs-file "markdown-mode.el")))
-  (when (file-exists-p mm)
-    (load mm)))
+(let ((mmfn (locate-user-emacs-file "markdown-mode.el")))
+  (when (file-exists-p mmfn)
+    (load mmfn)))
+(require 'markdown-mode)
+
+;; SMEX
+(let ((smexfn (locate-user-emacs-file "smex.el")))
+  (when (file-exists-p smexfn)
+    (load smexfn)))
+(require 'smex)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(smex-auto-update)
 
 ;;; Backups
 (setq
@@ -51,5 +61,9 @@
 (savehist-mode 1)
 (recentf-mode 1)
 (global-visual-line-mode -1)
+
+;;; Keys
+(when (display-graphic-p)
+  (global-unset-key (kbd "C-z")))
 
 ;;;;;;;;;;;;;;;; End of init.el
